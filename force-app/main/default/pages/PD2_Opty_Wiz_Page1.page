@@ -1,0 +1,20 @@
+<apex:page controller="PD2_Opty_Wiz_Controller" showHeader="true" sidebar="true">
+	<apex:form >
+		<apex:pageBlock title="Contact, Account & Opportunity">
+			<apex:pageBlockSection title="Contact Details">
+				<apex:inputField value="{!contact.FirstName}"/>
+				<apex:inputField value="{!contact.LastName}"/>
+				<apex:inputField value="{!contact.Phone}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Account Details">
+				<apex:inputField value="{!account.Name}"/>
+				<apex:inputField value="{!account.Industry}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!page2}" value="Next"/>
+				<apex:commandButton action="{!cancel}" value="Cancel"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+	
+</apex:page>

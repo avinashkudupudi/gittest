@@ -1,0 +1,14 @@
+<apex:page standardController="Account" extensions="AccountVehicleController" action="{!Init}" >
+
+<apex:form >
+	<apex:pageBlock title="Vehicles" rendered="true">
+	<apex:commandButton value="New Vehicle" action="{!URLFOR("/a0C/e?CF00Ni000000FiwV0="+accountName+"&CF00Ni000000FiwV0_lkid="+currentRecordId)}"/>
+	<apex:pageBlockTable value="{!vehicleList}" var="v" id="vList" >
+	<apex:column value="{!v.Name}"/>
+	<apex:column value="{!v.Model__c}"/>
+	<apex:repeat />
+	</apex:pageBlockTable>
+	</apex:pageBlock>
+</apex:form>
+
+</apex:page>

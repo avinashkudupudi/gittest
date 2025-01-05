@@ -1,0 +1,7 @@
+<apex:page standardController="Account" sidebar="false" showHeader="false" standardStylesheets="false">
+   <ul>
+    <apex:repeat value="{!account.contacts}" var="item">
+       <li><apex:outputText value="{!item.name}"/></li>
+    </apex:repeat>
+</ul>
+</apex:page>

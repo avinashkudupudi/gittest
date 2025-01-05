@@ -1,0 +1,49 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes,force:hasRecordId" 
+                access="global"
+                controller="CaseAuraController">
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="errorMsg" type="String"/>
+    <aura:attribute name="notify" type="Boolean" default="false"/>
+    <aura:attribute name="CaseRec" type="Case" default="{'sObjectType': 'Case'}"/>
+    <aura:attribute name="Level1Rec" type="Level1__c" default="{'sObjectType': 'Level1__c'}"/>
+    <aura:attribute name="varStage" type="string" default="1"/>
+    
+    <!--aura:handler name="init" value="{!this}" action="{!c.doInit}"/-->
+    
+    <ltng:require styles="{!$Resource.ModelCSS8090}"/>
+    <h4 class="slds-text-heading_medium" ><b>Case Create</b></h4>
+    <br/>
+    <aura:if isTrue="{!v.loader}">
+    	<lightning:spinner aura:id="mySpinner" variant="brand" size="medium" alternativeText="Processing ..."/>
+    </aura:if>
+    
+    <aura:if isTrue="{!equals(v.varStage,'1')}">
+        <div class="slds- grid slds- wrap slds- gutters slds-size_ 1-of-1" style="width:100%;">
+            <div aura:id="input1" class="slds-size_1-of-1 " style="display:block;">
+                
+                <div class="slds-grid slds-wrap slds -m-around_small">
+                    <div class="slds-col slds-size_1-of-5 slds-m-around_ xx-small">
+                        <c:Picklist_CMP label="Status" sObjectName="Case" fieldName="Status" value="{!v.CaseRec.Status}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5 slds-m-around_ xx-small">
+                        <c:Picklist_CMP label="Case Origin" sObjectName="Case" fieldName="Origin" value="{!v.CaseRec.Origin}"/>
+                    </div>
+                    <div class="slds-col slds-size_1-of-5 slds-m-around_ xx-small">
+                        <lightning:input required="true" label="Subject" value="{!v.CaseRec.Subject}"/>
+                    </div>
+                    <br/><br/>
+                    <div class="slds-col slds-size_1-of-5 slds-m-around_ xx-small">
+                        <lightning:input required="true" label="Level1 Name" value="{!v.Level1Rec.Name}"/>
+                    </div>
+                </div>
+                <div class="" style="color:red;">
+                    {!v.errorMsg}
+                </div>
+            </div>
+        </div>
+    </aura:if>
+           <footer class="slds-modal__footer">
+                       <lightning:button variant="Neutral" label="Cancel" onclick="{!c.handleCancel}" />
+                       <lightning:button variant="brand" type="submit" label="Save" onclick="{!c.handleSubmit}"/>
+           </footer>
+</aura:component>

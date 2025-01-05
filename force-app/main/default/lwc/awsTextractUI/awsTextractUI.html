@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Document Analyzer" icon-name="custom:custom63">
+        <lightning-button label="Read Lease" onclick={handleTextract} slot="actions"></lightning-button>
+        <lightning-button label="Read Ledger" onclick={handleLedger} slot="actions"></lightning-button>
+        <lightning-button label="Read FAS" onclick={handleFAS} slot="actions"></lightning-button>
+        <lightning-button label="View Lease" onclick={viewLease} slot="actions"></lightning-button>
+        <lightning-button label="View Ledger" onclick={viewLedger} slot="actions"></lightning-button>
+        <lightning-button label="View FAS" onclick={viewFAS} slot="actions"></lightning-button>
+        <lightning-button label="Overview" onclick={getOverview} slot="actions"></lightning-button>
+    </lightning-card>
+
+    <lightning-card if:true={showDataCard} title="Document Attributes" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">  
+            <lightning-input type="search" label="Search Attributes" onchange={handleSearch}></lightning-input><br/><br/>
+            <template if:true={showDataCard}>      
+                <lightning-datatable
+                    key-field="Id"
+                    data={simpleMap}
+                    columns={columns}
+                    hide-checkbox-column="true"
+                    show-row-number-column="true">
+                </lightning-datatable>  
+            </template>  
+        </div>  
+        <!--lightning-layout pull-to-boundary="medium">>
+            <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                <ul if:true={simpleMap} class="scroller">
+                    <template for:each={simpleMap} for:item="map">
+                        <li key={map.key}>{map.key} : {map.value}</li>
+                    </template>
+                </ul>
+            </lightning-layout-item>
+        </lightning-layout-->
+    </lightning-card>
+</template>

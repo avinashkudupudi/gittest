@@ -1,0 +1,10 @@
+<apex:page standardController="Account">
+	<apex:pageBlock title="Contacts">
+		<apex:dataTable value="{!Account.Contacts}" var="Contact" cellpadding="4" border="1">
+			<apex:column >
+				<apex:facet name="header">Name</apex:facet>
+				{!Contact.Name}
+			</apex:column>
+		</apex:dataTable>
+	</apex:pageBlock>	
+</apex:page>

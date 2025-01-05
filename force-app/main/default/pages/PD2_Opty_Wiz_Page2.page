@@ -1,0 +1,16 @@
+<apex:page controller="PD2_Opty_Wiz_Controller" showHeader="true" sidebar="true">
+	<apex:form >
+		<apex:pageBlock title="Opportunity Details">
+			<apex:pageBlockSection title="String">
+				<apex:inputField value="{!opportunity.Name}"/>
+				<apex:inputField value="{!opportunity.Amount}"/>
+				<apex:inputField value="{!opportunity.CloseDate}"/>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!page1}" value="Previous"/>
+				<apex:commandButton action="{!page3}" value="Next"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+	
+</apex:page>

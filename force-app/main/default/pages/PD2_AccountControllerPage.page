@@ -1,0 +1,10 @@
+<apex:page controller="PD2_AccountController" showHeader="true" sidebar="true">
+	<apex:form >
+		<apex:pageBlock title="Account Details">
+			<apex:pageBlockSection >
+				<apex:inputField value="{!account.Name}"/>
+			</apex:pageBlockSection>
+			<apex:commandButton action="{!Save}" value="Save"/>
+		</apex:pageBlock>
+	</apex:form>			
+</apex:page>

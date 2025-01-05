@@ -1,0 +1,9 @@
+<apex:page controller="PD2_OptySetController" showHeader="true" sidebar="true">
+	<apex:pageBlock title="List of Opportunities">
+		<apex:pageBlockTable value="{!Opportunities}" var="opp">
+			<apex:column value="{!opp.Name}"/>
+			<apex:column value="{!opp.Amount}"/>
+		</apex:pageBlockTable>
+	</apex:pageBlock>
+	
+</apex:page>

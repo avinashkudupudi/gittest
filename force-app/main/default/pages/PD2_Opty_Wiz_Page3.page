@@ -1,0 +1,4 @@
+<apex:page controller="PD2_Opty_Wiz_Controller" showHeader="true" sidebar="true">
+	<apex:pageBlock title="Coming soon">
+	</apex:pageBlock>
+</apex:page>
